@@ -10,8 +10,8 @@ if( empty ($_SESSION['none'])){
 }
 
 
-$con = mysqli_connect('localhost','root','qwerty');
-mysqli_select_db($con,'milkteapos');
+$con = mysqli_connect('localhost:1433','root','12345');
+mysqli_select_db($con,'milkteashop');
  //fetch products
  $sql = "SELECT * FROM products";
  $result =  mysqli_query($con, $sql);

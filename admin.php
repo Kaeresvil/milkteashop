@@ -9,8 +9,8 @@ session_start();
     header('location: login.php');
  }
 
- $con = mysqli_connect('localhost','root','qwerty');
- mysqli_select_db($con,'milkteapos');
+ $con = mysqli_connect('localhost:1433','root','12345');
+ mysqli_select_db($con,'milkteashop');
 
  //add new product
  if(isset($_POST['addproduct'])){

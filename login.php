@@ -3,11 +3,11 @@
 session_start();
 
 
-$con = mysqli_connect('localhost','root','qwerty');
-mysqli_select_db($con,'milkteapos');
+$con = mysqli_connect('localhost:1433','root','12345');
+mysqli_select_db($con,'milkteashop');
 
 if(isset($_POST['g-recaptcha-response'])){
-    $secrectkey = "6LerN74fAAAAAETsYXAYjFSTxB7q29cQWm8JWWXN";//copy the secret key of google reCaptcha 
+    $secrectkey = "6LcM3b4fAAAAAHtC0sYZcOtRlsfkGuIzah_ZmJ8l";//copy the secret key of google reCaptcha 
     $ip = $_SERVER['REMOTE_ADDR'];
     $response = $_POST['g-recaptcha-response'];
     $url ="https://www.google.com/recaptcha/api/siteverify?secret=$secrectkey&response=$response&remoteip=$ip";
@@ -29,7 +29,7 @@ if(isset($_POST['g-recaptcha-response'])){
         
         if($num == 1){
             while($row=mysqli_fetch_array($result)){
-                if($row['status'] == admin){
+                if($row['status'] == 'admin'){
                 $_SESSION['status']=$row['status'];
                 header('location:admin.php');
                 }else{
@@ -79,7 +79,7 @@ if(isset($_POST['g-recaptcha-response'])){
                 </div>
                
                 <div class="fields button">
-                <div class="g-recaptcha" data-sitekey="6LerN74fAAAAABfZlZmCfqGi6cIY0FQV1xQpA_Yl"></div> <!-- copy the site key of google reCaptcha -->
+                <div class="g-recaptcha" data-sitekey="6LcM3b4fAAAAAKErlQGhrpfRKBQ2tztxGztmio2x"></div> <!-- copy the site key of google reCaptcha -->
                 <?php if (isset($_SESSION['recaptcha']) == 1) { ?>
                     <span style="color:red; font-size: 17px; text-align: center" id="recap">reCAPTCHA required!</span>
                 <?php } ?>
